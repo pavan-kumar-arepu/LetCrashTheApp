@@ -17,7 +17,12 @@ struct ContentView: View {
         VStack {
             Button(action: {
                 // Simulate a crash
-                fatalError("App crashed")
+                do {
+                             try simulateCrash()
+                         } catch {
+                             // Handle the error here
+                             print("An error occurred: \(error)")
+                         }
             }) {
                 Text("Crash the App")
                     .padding()
@@ -51,6 +56,12 @@ struct ContentView: View {
         } else {
             self.crashReportExists = false
         }
+    }
+    
+    func simulateCrash() {
+        let array = [1, 2, 3]
+        // Access an out-of-bounds index to cause a crash
+        _ = array[5]
     }
 }
 
@@ -90,6 +101,7 @@ struct MailView: UIViewControllerRepresentable {
 
     func updateUIViewController(_ uiViewController: MFMailComposeViewController, context: Context) {}
 }
+
 
 
 struct ContentView_Previews: PreviewProvider {

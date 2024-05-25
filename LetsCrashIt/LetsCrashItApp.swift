@@ -11,6 +11,7 @@ import SwiftUI
 struct LetsCrashItApp: App {
     // Integrate AppDelegate
       @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

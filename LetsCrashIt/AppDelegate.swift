@@ -15,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSSetUncaughtExceptionHandler(handleUncaughtException)
         return true
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        print(#function)
+    }
 }
 
 func handleUncaughtException(_ exception: NSException) {
